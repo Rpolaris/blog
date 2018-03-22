@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>后台</title>
+<meta name="keywords" content="绿色模板,个人网站模板,个人博客模板,博客模板,css3,html5,网站模板" />
+<meta name="description" content="这是一个有关Green绿色小清新的夏天的css3 html5 网站模板" />
+<link href="__PUBLIC__/admin/css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="mainContent">
+  <div class="ulist">
+    <section> <a href="/home/admin/admin"> <img src="__PUBLIC__/admin/images/d3.jpg"></a>
+      <ul>
+        <h2><a href="/home/admin/admin">用户管理</a></h2>
+        <p><a href="/home/admin/admin">用户资料</a></p>
+      </ul>
+    </section>
+    <section> <a href="/home/admin/list"><img src="__PUBLIC__/admin/images/d2.jpg"></a>
+      <ul>
+        <h2><a href="/home/admin/list">博客管理</a></h2>
+        <p><a href="/home/admin/list">文章管理</a></p>
+  
+      </ul>
+    </section>
+  </div>
+	
+</div>
+<div class="mainContent2">
+
+   <div class="mc1">
+		<span>用户管理</span>
+   </div>
+   
+   <div class="mc2">
+   		<notempty name="res">
+			<span>共有{$count}条用户记录</span>
+		</notempty>
+   </div>
+   
+   <div class="mc3">
+	   <span style="margin-left:33px;">昵称</span>
+	   <span>创建时间</span>
+	   <span style="margin-right:85px;">手机</span>
+	   <span>用户类型</span>
+	   <span>操作</span>
+   </div>
+	<notempty name="user">
+	<foreach name="user" item="vel">
+	    <div class="mc4">
+		   <div class="m1"><span style="margin-left: 35px;">{$vel.name}</span></div>
+		   <div class="m3"><span></span>{$vel.addtime}</div>
+		   <div class="m4"><span style="margin-left: -45px;">{$vel.phone}</span></div>
+		   <if condition="$vel['admin'] lt 1">
+		   <div class="m6" ><span style="margin-left: -15px;">普通用户</span></div>
+		   <else/>
+		   <div class="m6" ><span style="margin-left: -15px;">管理员</span></div>
+			</if>
+		   <input type="hidden" value="">
+		   <div class="m7 " ><span style="margin-left: 10px;"><a href='/home/admin/del?uid={$vel.uid}'>删除</a></span></div>
+	   </div>
+	</foreach>
+	</notempty>
+</div>
+ 
+</body>
+</html>
